@@ -11,3 +11,7 @@ All the notable changes to the Laravel Natural Language package are documented i
 ## 1.1.0 - 2025-02-26
 
 - Added Laravel 12 support.
+
+## 1.1.1 - 2025-02-26
+
+- Fix phpstan config.

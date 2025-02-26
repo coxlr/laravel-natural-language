@@ -8,4 +8,6 @@ parameters:
         - src
         - config
 
-    checkMissingIterableValueType: false
+    ignoreErrors:
+        - identifier: missingType.iterableValue
+        - '#Call to function method_exists\(\) with Google\\Cloud\\Language\\Annotation and .* will always evaluate to true.#'

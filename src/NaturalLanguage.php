@@ -17,7 +17,7 @@ class NaturalLanguage
             ->languageClient
             ->sentiment($text);
 
-        if(is_null($sentiment)) {
+        if (is_null($sentiment)) {
             return [
                 'text' => $text,
                 'verdict' => null,

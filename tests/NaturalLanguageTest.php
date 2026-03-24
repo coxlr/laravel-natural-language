@@ -7,6 +7,7 @@ use Coxlr\NaturalLanguage\NaturalLanguageClient;
 use Coxlr\NaturalLanguage\Verdict;
 use Google\Cloud\Language\Annotation;
 use Mockery;
+use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 
 class NaturalLanguageTest extends TestCase
@@ -31,7 +32,7 @@ class NaturalLanguageTest extends TestCase
         Mockery::close();
     }
 
-    /** @test */
+    #[Test]
     public function it_can_detect_the_sentiment_of_string_passed_to_it()
     {
         $this->languageClient
@@ -49,7 +50,7 @@ class NaturalLanguageTest extends TestCase
         $this->assertArrayHasKey('magnitude', $response);
     }
 
-    /** @test */
+    #[Test]
     public function it_gives_the_correct_verdict_based_on_the_score_and_magnitude_of_the_sentiment_of_a_string()
     {
         $verdict = $this->language->prepareVerdict(0.8, 10);
@@ -68,7 +69,7 @@ class NaturalLanguageTest extends TestCase
         $this->assertEquals(Verdict::MIXED_AND_NEUTRAL, $verdict);
     }
 
-    /** @test */
+    #[Test]
     public function it_can_detect_the_entities_from_the_string_passed_to_it()
     {
         $this->languageClient
@@ -84,7 +85,7 @@ class NaturalLanguageTest extends TestCase
         $this->assertArrayHasKey('entities', $response);
     }
 
-    /** @test */
+    #[Test]
     public function it_can_detect_the_sentiment_per_entity_from_the_string_passed_to_it()
     {
         $this->languageClient
@@ -100,7 +101,7 @@ class NaturalLanguageTest extends TestCase
         $this->assertArrayHasKey('entities', $response);
     }
 
-    /** @test */
+    #[Test]
     public function it_can_detect_the_syntax_from_the_string_passed_to_it()
     {
         $this->languageClient
@@ -118,7 +119,7 @@ class NaturalLanguageTest extends TestCase
         $this->assertArrayHasKey('language', $response);
     }
 
-    /** @test */
+    #[Test]
     public function it_can_detect_the_categories_from_the_string_passed_to_it()
     {
         $this->languageClient
@@ -134,7 +135,7 @@ class NaturalLanguageTest extends TestCase
         $this->assertArrayHasKey('categories', $response);
     }
 
-    /** @test */
+    #[Test]
     public function it_can_annotate_the_string_passed_to_it()
     {
         $this->languageClient

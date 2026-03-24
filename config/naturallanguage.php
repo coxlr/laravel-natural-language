@@ -21,5 +21,5 @@ return [
     | Path to the json file containing the authentication credentials.
     |--------------------------------------------------------------------------
     */
-    'key_file_path' => base_path('composer.json'),
+    'key_file_path' => env('NATURAL_LANGUAGE_KEY_FILE_PATH', base_path('google-credentials.json')),
 ];

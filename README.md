@@ -46,9 +46,18 @@ return [
     | Path to the json file containing the authentication credentials.
     |--------------------------------------------------------------------------
     */
-    'key_file_path' => base_path('composer.json'),
+    'key_file_path' => env('NATURAL_LANGUAGE_KEY_FILE_PATH', base_path('google-credentials.json')),
 ];
 ```
+
+Add the following to your `.env` file:
+
+```dotenv
+NATURAL_LANGUAGE_PROJECT_ID=your-google-project-id
+NATURAL_LANGUAGE_KEY_FILE_PATH=/full/path/to/your/google-credentials.json
+```
+
+> **Important:** If you previously published the config file, you will need to update `key_file_path` to use the `env()` helper as shown above. Older versions of the config file had a hardcoded default path that did not read from the environment.
 
 ## Usage
 
